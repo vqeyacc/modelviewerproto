@@ -7,7 +7,7 @@
         <a-scene embedded arjs="sourceType: webcam;">
             <a-marker preset="hiro">
                 <a-entity
-                    scale="0.25 0.25 0.25"
+                    scale="0.01 0.01 0.01"
                     obj-model="
                         obj: url(paper_airplane.obj);
                         mtl: url(paper_airplane.mtl)
@@ -21,10 +21,14 @@
 </html>
 
 <!--
-TO TRY
+TO CONSIDER
+
+user upload model handler - file formats?
+
+maybe something about model scaling - user controlled?
 
 exit AR camera mode and allow floating camera to move around 3D model environment with controls
-https://aframe.io/docs/1.2.0/introduction/visual-inspector-and-dev-tools.html
+    https://aframe.io/docs/1.2.0/introduction/visual-inspector-and-dev-tools.html
 
 ----------------
 
