@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+        body {
+            font-family: "Tahoma", sans-serif;
+        }
         #menu {
             position: absolute;
             top: 5vh;
             right: 5vw;
         }
         #hamburgerMenu {
-            font-family: "Tahoma", sans-serif;
             font-size: 4vh;
             font-weight: bold;
             color: rgba(255,255,255,1);
@@ -98,17 +100,42 @@
                 translationLabel.innerHTML = "Translation <b>v</b>";
             }
         }
-        function changeX(value) {
+        function translateX(value) {
             document.getElementById("theEntity").object3D.position.x = value;
-            document.getElementById("xLabel").innerHTML = "X: " + value;
+            document.getElementById("translateXLabel").innerHTML = "X: " + value;
         }
-        function changeY(value) {
+        function translateY(value) {
             document.getElementById("theEntity").object3D.position.y = value;
-            document.getElementById("yLabel").innerHTML = "Y: " + value;
+            document.getElementById("translateYLabel").innerHTML = "Y: " + value;
         }
-        function changeZ(value) {
+        function translateZ(value) {
             document.getElementById("theEntity").object3D.position.z = value;
-            document.getElementById("zLabel").innerHTML = "Z: " + value;
+            document.getElementById("translateZLabel").innerHTML = "Z: " + value;
+        }
+        
+        function toggleRotation() {
+            var rotationControls = document.getElementById("rotationControls");
+            var rotationLabel = document.getElementById("rotationLabel");
+            if (rotationControls.style.display == "none") {
+                rotationControls.style.display = "initial";
+                rotationLabel.innerHTML = "Rotation";
+            }
+            else {
+                rotationControls.style.display = "none"
+                rotationLabel.innerHTML = "Rotation <b>v</b>";
+            }
+        }
+        function rotateX(value) {
+            document.getElementById("theEntity").object3D.rotation.x = value;
+            document.getElementById("rotateXLabel").innerHTML = "X: " + value;
+        }
+        function translateY(value) {
+            document.getElementById("theEntity").object3D.rotation.y = value;
+            document.getElementById("rotateYLabel").innerHTML = "Y: " + value;
+        }
+        function rotateZ(value) {
+            document.getElementById("theEntity").object3D.rotation.z = value;
+            document.getElementById("rotateZLabel").innerHTML = "Z: " + value;
         }
     </script>
     
@@ -150,17 +177,25 @@
                 <div id="translationContainer" class="inputContainer">
                     <p id="translationLabel" onclick="toggleTranslation()">Translation <b>v</b><p>
                     <div id="translationControls" style="display: none;">
-                        <p id="xLabel">X: 0</p>
-                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
-                        <p id="yLabel">Y: 0</p>
-                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeY(this.value)">
-                        <p id="zLabel">Z: 0</p>
-                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeZ(this.value)">
+                        <p id="translateXLabel">X: 0</p>
+                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="translateX(this.value)">
+                        <p id="translateYLabel">Y: 0</p>
+                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="translateY(this.value)">
+                        <p id="translateZLabel">Z: 0</p>
+                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="translateZ(this.value)">
                     </div>
                 </div>
                 
                 <div id="rotationContainer" class="inputContainer">
-                    
+                    <p id="rotationLabel" onclick="toggleRotation()">Rotation <b>v</b><p>
+                    <div id="rotationControls" style="display: none;">
+                        <p id="rotateXLabel">X: 0</p>
+                        <input type="range" min="-180" max="180" value="0" step="15" oninput="rotateX(this.value)">
+                        <p id="rotateYLabel">Y: 0</p>
+                        <input type="range" min="-180" max="180" value="0" step="15" oninput="rotateY(this.value)">
+                        <p id="rotateZLabel">Z: 0</p>
+                        <input type="range" min="-180" max="180" value="0" step="15" oninput="rotateZ(this.value)">
+                    </div>
                 </div>
             </div>
         </div>
