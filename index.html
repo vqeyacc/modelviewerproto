@@ -1,29 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-<!--     <style>
+    <style>
         .slidecontainer {
             position: absolute;
             left: 5vw;
             top: 5vh;
         }
-    </style> -->
+    </style>
     
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <!-- include ar.js for A-Frame -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-<!--     <script>
+    <script>
         function changeScale(value) {
+            console.log(value);
             var theEntity = document.getElementById("theEntity");
             document.getElementById("sliderLabel").innerHTML = "Scale: " + value;
             console.log(theEntity);
-            console.log(value);
         }
-    </script> -->
+    </script>
     
     <body style="margin : 0px; overflow: hidden;">
-<!--         <div class="slidecontainer">
-            <p id="sliderLabel">Scale: 0.01</p>
-            <input type="range" min="0.005" max="0.05" value=".01" onchange="changeScale(this.value)"> -->
         <a-scene embedded arjs="sourceType: webcam;">
             <a-marker preset="hiro">
                 <a-entity
@@ -38,6 +35,10 @@
             <a-entity camera>
             </a-entity>
         </a-scene>
+        <div class="slidecontainer">
+            <p id="sliderLabel">Scale: 0.01</p>
+            <input type="range" min="0.005" max="0.05" value=".01" onchange="changeScale(this.value)">
+        </div>
     </body>
 </html>
 
