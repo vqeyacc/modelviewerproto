@@ -14,10 +14,8 @@
     <script>
         function changeScale(value) {
             value = value / 200;
-            var theEntity = document.getElementById("theEntity");
             document.getElementById("ARmarker").innerHTML = '<a-entity id="theEntity" scale="' + value + ' ' + value + ' ' + value + '" obj-model=" obj: url(paper_airplane.obj); mtl: url(paper_airplane.mtl)"></a-entity>'
             document.getElementById("sliderLabel").innerHTML = "Scale: " + value;
-            console.log(theEntity);
         }
     </script>
     
