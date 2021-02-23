@@ -14,6 +14,7 @@
         }
         #hamburgerMenu:hover {
             color: rgba(200,200,200,1);
+            cursor: pointer;
         }
         #hamburgerMenu>div>div {
             height: 1vh;
@@ -37,6 +38,10 @@
             margin: 5px 0 0 0;
             padding: 5px;
             background-color: rgba(200,200,200,0.3);
+        }
+        #translationLabel:hover {
+            cursor: pointer;
+            color: rgba(200,200,200,1);
         }
     </style>
     
@@ -62,18 +67,15 @@
 //         }
         
         function toggleControls() {
-            console.log("toggleControls");
             var triple = document.getElementById("triple");
             var cross = document.getElementById("cross");
             var controls = document.getElementById("controls");
             if (controls.style.display == "none") {
-                console.log("none");
                 triple.style.display = "none";
                 cross.style.display = "initial";
                 controls.style.display = "initial";
             }
             else {
-                console.log("initial");
                 triple.style.display = "initial";
                 cross.style.display = "none";
                 controls.style.display = "none";
@@ -82,6 +84,19 @@
         function changeScale(value) {
             document.getElementById("theEntity").setAttribute("scale", value + " " + value + " " + value);
             document.getElementById("scaleLabel").innerHTML = "Scale: " + value;
+        }
+        
+        function toggleTranslation() {
+            var translationControls = document.getElementById("translationControls");
+            var translationLabel = document.getElementById("translationLabel");
+            if (translationControls.style.display == "none") {
+                translationControls.style.display = "initial";
+                translationLabel.innerHTML = "Translation";
+            }
+            else {
+                translationControls.style.display = "none"
+                translationLabel.innerHTML = "Translation <b>v</b>";
+            }
         }
         function changeX(value) {
             document.getElementById("theEntity").object3D.position.x = value;
@@ -133,12 +148,15 @@
                 </div>
 
                 <div id="translationContainer" class="inputContainer">
-                    <p id="xLabel">X: 0</p>
-                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
-                    <p id="yLabel">Y: 0</p>
-                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeY(this.value)">
-                    <p id="zLabel">Z: 0</p>
-                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeZ(this.value)">
+                    <p id="translationLabel" onclick="toggleTranslation()">Translation <b>v</b><p>
+                    <div id="translationControls" style="display: none;">
+                        <p id="xLabel">X: 0</p>
+                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
+                        <p id="yLabel">Y: 0</p>
+                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeY(this.value)">
+                        <p id="zLabel">Z: 0</p>
+                        <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeZ(this.value)">
+                    </div>
                 </div>
                 
                 <div id="rotationContainer" class="inputContainer">
