@@ -23,12 +23,8 @@
         }
         #setupButton {
         }
-        #scaleContainer {
-            margin: 5px 0;
-            padding: 5px;
-            background-color: rgba(200,200,200,0.3);
-        }
-        #xContainer {
+        .inputContainer {
+            margin: 5px 0 0 0;
             padding: 5px;
             background-color: rgba(200,200,200,0.3);
         }
@@ -79,8 +75,11 @@
         }
         function changeX(value) {
             document.getElementById("theEntity").object3D.position.x = value;
-            console.log(document.getElementById("theEntity").getAttribute("position"));
             document.getElementById("xLabel").innerHTML = "X: " + value;
+        }
+        function changeY(value) {
+            document.getElementById("theEntity").object3D.position.y = value;
+            document.getElementById("yLabel").innerHTML = "Y: " + value;
         }
     </script>
     
@@ -116,18 +115,18 @@
                 </div>
             </div>
             <div id="controls" style="display: none;">
-                <div id="scaleContainer">
+                <div id="scaleContainer" class="inputContainer">
                     <p id="scaleLabel">Scale: 0.015</p>
                     <input type="range" min="0.005" max="0.025" value="0.015" step="0.001" oninput="changeScale(this.value)">
                 </div>
 
-                <div id="xContainer">
+                <div id="xContainer" class="inputContainer">
                     <p id="xLabel">X: 0</p>
                     <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
                 </div>
-                <div id="yContainer">
-                    <p id="xLabel">X: 0</p>
-                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
+                <div id="yContainer" class="inputContainer">
+                    <p id="xLabel">Y: 0</p>
+                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeY(this.value)">
                 </div>
             </div>
         </div>
