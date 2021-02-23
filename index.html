@@ -57,16 +57,14 @@
 //             });
 //         }
         function hamburgerHighlight(state) {
-            var hamburgerLines = document.getElementsByClassName("hamburgerLine");
-            console.log(hamburgerLines);
             if (state == "in") {
-                console.log("in");
+                var hamburgerLines = document.getElementsByClassName("hamburgerLine");
                 for (var i = 0; i < hamburgerLines.length; i++) {
                     hamburgerLines[i].className = "hamburgerLineHover";
                 }
             }
             else {
-                console.log("out");
+                var hamburgerLines = document.getElementsByClassName("hamburgerLineHover");
                 for (var i = 0; i < hamburgerLines.length; i++) {
                     hamburgerLines[i].className = "hamburgerLine";
                 }
