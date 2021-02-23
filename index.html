@@ -133,7 +133,7 @@
             document.getElementById("theEntity").object3D.rotation.x = value;
             document.getElementById("rotateXLabel").innerHTML = "X: " + value;
         }
-        function translateY(value) {
+        function rotateY(value) {
             document.getElementById("theEntity").object3D.rotation.y = value;
             document.getElementById("rotateYLabel").innerHTML = "Y: " + value;
         }
@@ -194,11 +194,11 @@
                     <p id="rotationLabel" onclick="toggleRotation()">Rotation <b>v</b><p>
                     <div id="rotationControls" style="display: none;">
                         <p id="rotateXLabel">X: 0</p>
-                        <input type="range" min="-1.5" max="1.5" value="0" step="0.1" oninput="rotateX(this.value)">
+                        <input type="range" min="-2" max="2" value="0" step="0.05" oninput="rotateX(this.value)">
                         <p id="rotateYLabel">Y: 0</p>
-                        <input type="range" min="-1.5" max="1.5" value="0" step="0.1" oninput="rotateY(this.value)">
+                        <input type="range" min="-2" max="2" value="0" step="0.05" oninput="rotateY(this.value)">
                         <p id="rotateZLabel">Z: 0</p>
-                        <input type="range" min="-1.5" max="1.5" value="0" step="0.1" oninput="rotateZ(this.value)">
+                        <input type="range" min="-2" max="2" value="0" step="0.05" oninput="rotateZ(this.value)">
                     </div>
                 </div>
             </div>
