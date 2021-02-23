@@ -47,7 +47,7 @@
         }
     </script>
     
-    <body style="margin : 0px; overflow: hidden;" onload="setup()">
+    <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs="sourceType: webcam;">
 <!--             <a-marker type="pattern" url="ey.patt"> -->
             <a-marker preset="hiro" id="ARmarker">
@@ -57,7 +57,8 @@
                     obj-model="
                         obj: url(paper_airplane.obj);
                         mtl: url(paper_airplane.mtl)
-                    ">
+                    "
+                    onload="setup()">
                 </a-entity>
             </a-marker>
             <a-entity camera>
