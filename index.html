@@ -62,14 +62,13 @@
             if (state == "in") {
                 console.log("in");
                 for (var i = 0; i < hamburgerLines.length; i++) {
-                    console.log(document.getElementById(hamburgerLines[i]));
-                    document.getElementById(hamburgerLines[i]).className = "hamburgerLineHover";
+                    hamburgerLines[i].className = "hamburgerLineHover";
                 }
             }
             else {
                 console.log("out");
                 for (var i = 0; i < hamburgerLines.length; i++) {
-                    document.getElementById(hamburgerLines.item[i]).className = "hamburgerLine";
+                    hamburgerLines[i].className = "hamburgerLine";
                 }
             }
         }
