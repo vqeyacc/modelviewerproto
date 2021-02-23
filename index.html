@@ -14,6 +14,7 @@
     <script>
         function changeScale(value) {
             var theEntity = document.getElementById("theEntity");
+            document.getElementById("sliderLabel").innerHTML = "Scale: " + value;
             console.log(theEntity);
             console.log(value);
         }
@@ -21,7 +22,7 @@
     
     <body style="margin : 0px; overflow: hidden;">
         <div class="slidecontainer">
-            <p>Scale:</p>
+            <p id="sliderLabel">Scale: 0.01</p>
             <input type="range" min="0.005" max="0.05" value=".01" onchange="changeScale(this.value)">
         <a-scene embedded arjs="sourceType: webcam;">
             <a-marker preset="hiro">
