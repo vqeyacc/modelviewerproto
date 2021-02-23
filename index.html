@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
-        #controls {
+        #menu {
             position: absolute;
-            left: 5vw;
             top: 5vh;
+            right: 5vw;
+        }
+        #hamburgerMenu>div>div {
+            height: 1vh;
+            width: 3vw;
+            border-radius: 0.5vh;
+            background-color: rgba(255,255,255,1);
+        }
+        #controls {
         }
         #setupButton {
-            
         }
         #scaleContainer {
             margin: 5px 0;
@@ -40,6 +47,21 @@
                 console.log("mouseleave");
             });
         }
+        function toggleControls() {
+            var triple = document.getElementById("triple");
+            var cross = document.getElementById("cross");
+            var controls = document.getElementById("controls");
+            if (controls.style.display == "none") {
+                triple.style.display == "none";
+                cross.style.display == "initial";
+                controls.style.display == "initial";
+            }
+            else {
+                triple.style.display == "initial";
+                cross.style.display == "none";
+                controls.style.display == "none";
+            }
+        }
         function changeScale(value) {
             document.getElementById("theEntity").setAttribute("scale", value + " " + value + " " + value);
             document.getElementById("scaleLabel").innerHTML = "Scale: " + value;
@@ -69,15 +91,33 @@
                 </a-entity>
             </a-entity>
         </a-scene>
-        <div id="controls">
-            <button id="setupButton" onclick="setup()">Setup</button>
-            <div id="scaleContainer">
-                <p id="scaleLabel">Scale: 0.015</p>
-                <input type="range" min="0.005" max="0.025" value="0.015" step="0.001" oninput="changeScale(this.value)">
+        <div id="menu">
+<!--             <button id="setupButton" onclick="setup()">Setup</button> -->
+            <div id="hamburgerMenu" onclick="toggleControls()">
+                <div id="triple">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+                <div id="cross" style="display: none;">
+                    <div></div>
+                    <div></div>
+                </div>
             </div>
-            <div id="xContainer">
-                <p id="xLabel">X: 0</p>
-                <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
+            <div id="controls" style="display: none;">
+                <div id="scaleContainer">
+                    <p id="scaleLabel">Scale: 0.015</p>
+                    <input type="range" min="0.005" max="0.025" value="0.015" step="0.001" oninput="changeScale(this.value)">
+                </div>
+
+                <div id="xContainer">
+                    <p id="xLabel">X: 0</p>
+                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
+                </div>
+                <div id="yContainer">
+                    <p id="xLabel">X: 0</p>
+                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
+                </div>
             </div>
         </div>
     </body>
