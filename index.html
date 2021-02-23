@@ -58,12 +58,16 @@
 //         }
         function hamburgerHighlight(state) {
             var hamburgerLines = document.getElementsByClassName("hamburgerLine");
+            console.log(hamburgerLines);
             if (state == "in") {
+                console.log("in");
                 for (var i = 0; i < hamburgerLines.length; i++) {
+                    console.log(document.getElementById(hamburgerLines.item(i)));
                     document.getElementById(hamburgerLines.item(i)).className = "hamburgerLineHover";
                 }
             }
             else {
+                console.log("out");
                 for (var i = 0; i < hamburgerLines.length; i++) {
                     document.getElementById(hamburgerLines.item(i)).className = "hamburgerLine";
                 }
