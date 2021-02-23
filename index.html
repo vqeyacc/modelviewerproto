@@ -14,13 +14,17 @@
             width: 3vw;
             margin: 0.5vh;
             border-radius: 0.5vh;
+            background-color: rgba(255,255,255,1);
         }
-        .hamburgerLine {
+        #hamburgerMenu:hover>div>div {
+            background-color: rgba(150,150,150,1);
+        }
+/*         .hamburgerLine {
             background-color: rgba(255,255,255,1);
         }
         .hamburgerLineHover {
             background-color: rgba(150,150,150,1);
-        }
+        } */
         #controls {
         }
         #setupButton {
@@ -56,20 +60,21 @@
 //                 console.log("mouseleave");
 //             });
 //         }
-        function hamburgerHighlight(state) {
-            if (state == "in") {
-                var hamburgerLines = document.getElementsByClassName("hamburgerLine");
-                for (var i = 0; i < hamburgerLines.length; i++) {
-                    hamburgerLines[i].className = "hamburgerLineHover";
-                }
-            }
-            else {
-                var hamburgerLines = document.getElementsByClassName("hamburgerLineHover");
-                for (var i = 0; i < hamburgerLines.length; i++) {
-                    hamburgerLines[i].className = "hamburgerLine";
-                }
-            }
-        }
+        
+//         function hamburgerHighlight(state) {
+//             if (state == "in") {
+//                 var hamburgerLines = document.getElementsByClassName("hamburgerLine");
+//                 for (var i = 0; i < hamburgerLines.length; i++) {
+//                     hamburgerLines[i].className = "hamburgerLineHover";
+//                 }
+//             }
+//             else {
+//                 var hamburgerLines = document.getElementsByClassName("hamburgerLineHover");
+//                 for (var i = 0; i < hamburgerLines.length; i++) {
+//                     hamburgerLines[i].className = "hamburgerLine";
+//                 }
+//             }
+//         }
         function toggleControls() {
             var triple = document.getElementById("triple");
             var cross = document.getElementById("cross");
@@ -116,7 +121,7 @@
         </a-scene>
         <div id="menu">
 <!--             <button id="setupButton" onclick="setup()">Setup</button> -->
-            <div id="hamburgerMenu" onmouseover="hamburgerHighlight('in')" onmouseout="hamburgerHighlight('out')" onclick="toggleControls()">
+            <div id="hamburgerMenu" onclick="toggleControls()"> <!-- onmouseover="hamburgerHighlight('in')" onmouseout="hamburgerHighlight('out')" -->
                 <div id="triple">
                     <div class="hamburgerLine"></div>
                     <div class="hamburgerLine"></div>
