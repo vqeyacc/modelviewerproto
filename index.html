@@ -24,10 +24,11 @@
         function changeScale(value) {
             value = value / 200;
             document.getElementById("theEntity").setAttribute("scale", value + " " + value + " " + value);
-//             document.getElementById("ARmarker").innerHTML = '<a-entity id="theEntity" scale="' + value + ' ' + value + ' ' + value + '" obj-model=" obj: url(paper_airplane.obj); mtl: url(paper_airplane.mtl)"></a-entity>'
             document.getElementById("scaleLabel").innerHTML = "Scale: " + value;
         }
         function changeX(value) {
+            console.log(document.getElementById("theEntity").getAttribute("position");
+            document.getElementById("xLabel").innerHTML = "X: " + value;
         }
     </script>
     
@@ -52,7 +53,7 @@
         </div>
         <div id="xContainer">
             <p id="xLabel">X: 0</p>
-            <input type="range" min="1" max="5" value="3" oninput="changeX(this.value)">
+            <input type="range" min="-2" max="2" value="0" oninput="changeX(this.value)">
         </div>
     </body>
 </html>
