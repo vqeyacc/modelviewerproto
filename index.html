@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
+        #setupButton {
+            position: absolute;
+            left: 5vw;
+            top: 2.5vh;
+        }
         #scaleContainer {
             position: absolute;
             left: 5vw;
@@ -23,6 +28,7 @@
     <script>
         function setup() {
             console.log("setup");
+            document.getElementById("setupButton").style.display="none";
             document.getElementById("theEntity").addEventListener("mouseover", function() {
                 console.log("mouseover");
             });
@@ -57,13 +63,13 @@
                     obj-model="
                         obj: url(paper_airplane.obj);
                         mtl: url(paper_airplane.mtl)
-                    "
-                    onload="setup()">
+                    ">
                 </a-entity>
             </a-marker>
             <a-entity camera>
             </a-entity>
         </a-scene>
+        <button id="setupButton" onclick="setup()">Setup</button>
         <div id="scaleContainer">
             <p id="scaleLabel">Scale: 0.015</p>
             <input type="range" min="0.005" max="0.025" value="0.015" step="0.001" oninput="changeScale(this.value)">
