@@ -19,12 +19,6 @@
         #hamburgerMenu:hover>div>div {
             background-color: rgba(150,150,150,1);
         }
-/*         .hamburgerLine {
-            background-color: rgba(255,255,255,1);
-        }
-        .hamburgerLineHover {
-            background-color: rgba(150,150,150,1);
-        } */
         #controls {
         }
         #setupButton {
@@ -61,33 +55,22 @@
 //             });
 //         }
         
-//         function hamburgerHighlight(state) {
-//             if (state == "in") {
-//                 var hamburgerLines = document.getElementsByClassName("hamburgerLine");
-//                 for (var i = 0; i < hamburgerLines.length; i++) {
-//                     hamburgerLines[i].className = "hamburgerLineHover";
-//                 }
-//             }
-//             else {
-//                 var hamburgerLines = document.getElementsByClassName("hamburgerLineHover");
-//                 for (var i = 0; i < hamburgerLines.length; i++) {
-//                     hamburgerLines[i].className = "hamburgerLine";
-//                 }
-//             }
-//         }
         function toggleControls() {
+            console.log("toggleControls");
             var triple = document.getElementById("triple");
             var cross = document.getElementById("cross");
             var controls = document.getElementById("controls");
             if (controls.style.display == "none") {
-                triple.style.display == "none";
-                cross.style.display == "initial";
-                controls.style.display == "initial";
+                console.log("none");
+                triple.style.display = "none";
+                cross.style.display = "initial";
+                controls.style.display = "initial";
             }
             else {
-                triple.style.display == "initial";
-                cross.style.display == "none";
-                controls.style.display == "none";
+                console.log("initial");
+                triple.style.display = "initial";
+                cross.style.display = "none";
+                controls.style.display = "none";
             }
         }
         function changeScale(value) {
@@ -121,7 +104,7 @@
         </a-scene>
         <div id="menu">
 <!--             <button id="setupButton" onclick="setup()">Setup</button> -->
-            <div id="hamburgerMenu" onclick="toggleControls()"> <!-- onmouseover="hamburgerHighlight('in')" onmouseout="hamburgerHighlight('out')" -->
+            <div id="hamburgerMenu" onclick="toggleControls()">
                 <div id="triple">
                     <div class="hamburgerLine"></div>
                     <div class="hamburgerLine"></div>
