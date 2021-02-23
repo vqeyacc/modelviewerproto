@@ -21,6 +21,20 @@
     <!-- include ar.js for A-Frame -->
     <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
     <script>
+        function setup() {
+            document.getElementById("theEntity").addEventListener("mouseover", function() {
+                console.log("mouseover");
+            });
+            document.getElementById("theEntity").addEventListener("mouseenter", function() {
+                console.log("mouseenter");
+            });
+            document.getElementById("theEntity").addEventListener("mouseout", function() {
+                console.log("mouseout");
+            });
+            document.getElementById("theEntity").addEventListener("mouseleave", function() {
+                console.log("mouseleave");
+            });
+        }
         function changeScale(value) {
             document.getElementById("theEntity").setAttribute("scale", value + " " + value + " " + value);
             document.getElementById("scaleLabel").innerHTML = "Scale: " + value;
@@ -32,7 +46,7 @@
         }
     </script>
     
-    <body style="margin : 0px; overflow: hidden;">
+    <body style="margin : 0px; overflow: hidden;" onload="setup()">
         <a-scene embedded arjs="sourceType: webcam;">
 <!--             <a-marker type="pattern" url="ey.patt"> -->
             <a-marker preset="hiro" id="ARmarker">
@@ -42,9 +56,7 @@
                     obj-model="
                         obj: url(paper_airplane.obj);
                         mtl: url(paper_airplane.mtl)
-                    "
-                    onmouseenter="console.log('mouseover')"
-                    onmouseleave="console.log('mouseout')">
+                    ">
                 </a-entity>
             </a-marker>
             <a-entity camera>
