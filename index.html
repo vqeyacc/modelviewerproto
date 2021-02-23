@@ -91,6 +91,10 @@
             document.getElementById("theEntity").object3D.position.y = value;
             document.getElementById("yLabel").innerHTML = "Y: " + value;
         }
+        function changeZ(value) {
+            document.getElementById("theEntity").object3D.position.z = value;
+            document.getElementById("zLabel").innerHTML = "Z: " + value;
+        }
     </script>
     
     <body style="margin : 0px; overflow: hidden;">
@@ -128,13 +132,17 @@
                     <input type="range" min="0.005" max="0.025" value="0.015" step="0.001" oninput="changeScale(this.value)">
                 </div>
 
-                <div id="xContainer" class="inputContainer">
+                <div id="translationContainer" class="inputContainer">
                     <p id="xLabel">X: 0</p>
                     <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeX(this.value)">
-                </div>
-                <div id="yContainer" class="inputContainer">
-                    <p id="xLabel">Y: 0</p>
+                    <p id="yLabel">Y: 0</p>
                     <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeY(this.value)">
+                    <p id="zLabel">Z: 0</p>
+                    <input type="range" min="-2" max="2" value="0" step="0.1" oninput="changeZ(this.value)">
+                </div>
+                
+                <div id="rotationContainer" class="inputContainer">
+                    
                 </div>
             </div>
         </div>
