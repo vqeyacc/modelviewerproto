@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
     <style>
-        .slidecontainer {
+        #scaleContainer {
             position: absolute;
             left: 5vw;
             top: 5vh;
+            padding: 10px;
+            background-color: rbga(200,200,200,.03);
+        }
+        #xContainer {
+            position: absolute;
+            left: 5vw;
+            top: 10vh;
+            padding: 10px;
+            background-color: rbga(200,200,200,.03);
         }
     </style>
     
@@ -14,8 +23,12 @@
     <script>
         function changeScale(value) {
             value = value / 200;
+            var theEntity = document.getElementById("theEntity");
+            console.log(theEntity.getAttribute("scale"));
             document.getElementById("ARmarker").innerHTML = '<a-entity id="theEntity" scale="' + value + ' ' + value + ' ' + value + '" obj-model=" obj: url(paper_airplane.obj); mtl: url(paper_airplane.mtl)"></a-entity>'
-            document.getElementById("sliderLabel").innerHTML = "Scale: " + value;
+            document.getElementById("scaleLabel").innerHTML = "Scale: " + value;
+        }
+        function changeX(value) {
         }
     </script>
     
@@ -34,9 +47,13 @@
             <a-entity camera>
             </a-entity>
         </a-scene>
-        <div class="slidecontainer">
-            <p id="sliderLabel">Scale: 0.01</p>
-            <input type="range" min="1" max="5" value="2" oninput="changeScale(this.value)">
+        <div id="scaleContainer">
+            <p id="scaleLabel">Scale: 0.01</p>
+            <input type="range" min="1" max="5" value="3" oninput="changeScale(this.value)">
+        </div>
+        <div id="xContainer">
+            <p id="xLabel">X: 0</p>
+            <input type="range" min="1" max="5" value="3" oninput="changeX(this.value)">
         </div>
     </body>
 </html>
