@@ -45,6 +45,10 @@
             cursor: pointer;
             color: rgba(200,200,200,1);
         }
+        #rotationLabel:hover {
+            cursor: pointer;
+            color: rgba(200,200,200,1);
+        }
     </style>
     
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
@@ -190,11 +194,11 @@
                     <p id="rotationLabel" onclick="toggleRotation()">Rotation <b>v</b><p>
                     <div id="rotationControls" style="display: none;">
                         <p id="rotateXLabel">X: 0</p>
-                        <input type="range" min="-180" max="180" value="0" step="15" oninput="rotateX(this.value)">
+                        <input type="range" min="-10" max="10" value="0" step="1" oninput="rotateX(this.value)">
                         <p id="rotateYLabel">Y: 0</p>
-                        <input type="range" min="-180" max="180" value="0" step="15" oninput="rotateY(this.value)">
+                        <input type="range" min="-10" max="10" value="0" step="1" oninput="rotateY(this.value)">
                         <p id="rotateZLabel">Z: 0</p>
-                        <input type="range" min="-180" max="180" value="0" step="15" oninput="rotateZ(this.value)">
+                        <input type="range" min="-10" max="10" value="0" step="1" oninput="rotateZ(this.value)">
                     </div>
                 </div>
             </div>
