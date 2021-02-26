@@ -87,6 +87,10 @@
                 controls.style.display = "none";
             }
         }
+        function changeModel(model) {
+            document.getElementById("marker").innerHTML = '<a-entity id="theEntity" scale="0.01 0.01 0.01" obj-model="obj: url(models/' + model + '.obj); mtl: url(models/' + model + '.mtl)"></a-entity>';
+        }
+        
         function changeScale(value) {
             document.getElementById("theEntity").setAttribute("scale", value + " " + value + " " + value);
             document.getElementById("scaleLabel").innerHTML = "Scale: " + value;
@@ -145,7 +149,7 @@
     
     <body style="margin : 0px; overflow: hidden;">
         <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-            <a-marker type="pattern" url="ey.patt">
+            <a-marker id="marker" type="pattern" url="ey.patt">
                 <a-entity
                     id="theEntity"
                     scale="0.01 0.01 0.01"
@@ -173,6 +177,14 @@
                 </div>
             </div>
             <div id="controls" style="display: none;">
+                <div id="dropdownContainer" class="inputContainer">
+                    <label for="models">Model: </label>
+                    <select name="models" id="models" onchange="changeModel(this.value)">
+                        <option value="paper_airplane">paper airplane</option>
+                        <option value="astronaut">astronaut</option>
+                        <option value="pagoda">pagoda</option>
+                    </select>
+                </div>
                 <div id="scaleContainer" class="inputContainer">
                     <p id="scaleLabel">Scale: 0.015</p>
                     <input type="range" min="0.005" max="0.025" value="0.015" step="0.001" oninput="changeScale(this.value)">
