@@ -89,8 +89,6 @@
             }
         }
         function changeModel(model) {
-            console.log(model);
-            console.log(document.getElementById("theEntity").object3D);
             document.getElementById("marker").innerHTML = '<a-entity id="theEntity" scale="0.01 0.01 0.01" obj-model="obj: url(models/' + model + '.obj); mtl: url(models/' + model + '.mtl)"></a-entity>';
         }
         
