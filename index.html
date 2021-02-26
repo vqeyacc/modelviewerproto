@@ -88,6 +88,11 @@
                 controls.style.display = "none";
             }
         }
+        function changeModel(model) {
+            console.log(model);
+            console.log(document.getElementById("theEntity").object3D);
+        }
+        
         function changeScale(value) {
             document.getElementById("theEntity").setAttribute("scale", value + " " + value + " " + value);
             document.getElementById("scaleLabel").innerHTML = "Scale: " + value;
@@ -174,6 +179,14 @@
                 </div>
             </div>
             <div id="controls" style="display: none;">
+                <div id="dropdownContainer" class="inputContainer">
+                    <label for="models">Model: </label>
+                    <select name="models" id="models" onchange="changeModel(this.value)">
+                        <option value="airplane">paper airplane</option>
+                        <option value="astronaut">astronaut</option>
+                        <option value="pagoda">pagoda</option>
+                    </select>
+                </div>
                 <div id="scaleContainer" class="inputContainer">
                     <p id="scaleLabel">Scale: 0.015</p>
                     <input type="range" min="0.005" max="0.025" value="0.015" step="0.001" oninput="changeScale(this.value)">
